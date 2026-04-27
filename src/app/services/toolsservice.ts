@@ -17,7 +17,8 @@ export class Toolsservice {
   
   getRoomsByHotelId(hotelId: number) {
     return this.http.get(
-      `https://hotelbooking.stepprojects.ge/api/Rooms/${hotelId}`
+      `https://hotelbooking.stepprojects.ge/api/Rooms/GetRoom/${hotelId}`
     );
   }
 }
+

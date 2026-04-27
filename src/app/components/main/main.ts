@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Toolsservice } from '../../services/toolsservice';
 
 @Component({
@@ -11,7 +11,7 @@ export class Main {
   public allProducts: any;
   public rooms: any[] = []; 
 
-  constructor(public tools: Toolsservice) {
+  constructor(public tools: Toolsservice, private cdr: ChangeDetectorRef) {
     this.getHotels();
   }
 
@@ -19,13 +19,15 @@ export class Main {
     this.tools.getAllProducts()
       .subscribe((data: any) => {
         this.allProducts = data;
+        this.cdr.detectChanges();
       });
   }
 
   getRooms(hotelId: number) {
     this.tools.getRoomsByHotelId(hotelId)
       .subscribe((data: any) => {
-        this.rooms = data;
+        this.rooms = [data];
+        this.cdr.detectChanges();
       });
   }
 }

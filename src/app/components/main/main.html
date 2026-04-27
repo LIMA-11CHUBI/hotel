@@ -1,24 +1,26 @@
-@for (item of allProducts; track $index) {
-  <div class="card" style="width: 18rem; margin: 10px;">
+<section class="d-flex flex-wrap gap-3">
+  @for (item of allProducts; track $index) {
+    <div class="card" style="width: 18rem; margin: 10px;">
 
-    <img [src]="item.featuredImage" class="card-img-top" alt="hotel image">
+      <img [src]="item.featuredImage" class="card-img-top" alt="hotel image">
 
-    <div class="card-body">
-      <h5 class="card-title">{{ item.name }}</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
 
-      <p class="card-text">
-        📍 {{ item.address }} <br>
-        🏙️ {{ item.city }}
-      </p>
+        <p class="card-text">
+          📍 {{ item.address }} <br>
+          🏙️ {{ item.city }}
+        </p>
 
-      <button class="btn btn-primary"
-              (click)="getRooms(item.id)">
-        Show Rooms
-      </button>
+        <button class="btn btn-primary"
+                (click)="getRooms(item.id)">
+          Show Rooms
+        </button>
+      </div>
+
     </div>
-
-  </div>
-}
+  }
+</section>
 
 <hr>
 
@@ -43,3 +45,4 @@
     </div>
   </div>
 }
+
